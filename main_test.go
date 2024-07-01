@@ -10,6 +10,7 @@ func TestRomanToNumber(t *testing.T) {
 		want int
 	}{
 		{name: "case 1", args: "I", want: 1},
+		{name: "case 2", args: "II", want: 2},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
