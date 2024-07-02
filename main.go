@@ -22,3 +22,40 @@ func RomanToNumber(x string) int {
 	}
 	return value
 }
+
+func RomanToNumberV2(x string) int {
+	curr := GetValue(x[0])
+	sum := 0
+	for _, s:=range x{
+		next := GetValue(byte(s))
+		if curr < next {
+			sum -= curr
+		}else{
+			sum += curr
+		}
+		curr = next
+	}
+	return sum
+	
+}
+
+func GetValue(s byte) int{
+	switch s {
+	case 'I':
+		return 1
+	case 'V':
+		return 5
+	case 'X':
+		return 10
+	case 'L':
+		return 50
+	case 'C':
+		return 100
+	case 'D':
+		return 500
+	case 'M':
+		return 1000
+	default:
+		return 0
+	}
+}
