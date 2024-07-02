@@ -1,4 +1,4 @@
-package roman
+package main
 
 func RomanToNumber(x string) int {
 	valueMap := map[byte]int{
@@ -26,8 +26,8 @@ func RomanToNumber(x string) int {
 func RomanToNumberV2(x string) int {
 	curr := GetValue(x[0])
 	sum := 0
-	for _, s:=range x{
-		next := GetValue(byte(s))
+	for i:= 1 ; i < len(x) ; i++{
+		next := GetValue(x[i])
 		if curr < next {
 			sum -= curr
 		}else{
@@ -35,8 +35,8 @@ func RomanToNumberV2(x string) int {
 		}
 		curr = next
 	}
-	return sum
-	
+	sum += curr
+	return sum	
 }
 
 func GetValue(s byte) int{
